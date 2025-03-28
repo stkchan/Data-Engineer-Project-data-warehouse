@@ -36,14 +36,10 @@ SELECT
 		ELSE NULL
 	END AS cst_gender,
 
-	cst_create_date,
-	ranked
+	cst_create_date
 
 FROM
 	ranking
 
 WHERE
 	ranked = 1 
-
-ORDER BY
-	ranked DESC
