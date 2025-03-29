@@ -41,11 +41,11 @@ BEGIN
 
 
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating Table: bronze.crm_cust_info';
+		PRINT '>> Truncating Table: bronze.crm_prd_info';
 		TRUNCATE TABLE bronze.crm_prd_info;
 
 		PRINT '>> Inserting Table: bronze.crm_cust_info';
-		BULK INSERT bronze.crm_cust_info
+		BULK INSERT bronze.crm_prd_info
 		FROM 'C:\Project\Dataset\DATA-WAREHOUSE\source_crm\prd_info.csv'
 		WITH (
 			FIRSTROW = 2,
