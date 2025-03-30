@@ -45,3 +45,50 @@ FROM
 	silver.crm_prd_info
 WHERE
 	prd_end_dt < prd_start_dt;
+
+
+
+
+---------------------------------------------------------------------- TABLE = bronze.crm_sales_details
+
+-- Checking "Spaces" values in sls_ord_num column
+SELECT
+	sls_ord_num,
+	sls_prd_key,
+	sls_cust_id,
+	sls_order_dt,
+	sls_ship_dt,
+	sls_due_dt,
+	sls_sales,
+	sls_quantity,
+	sls_price
+
+FROM
+	bronze.crm_sales_details
+
+WHERE
+	sls_ord_num != TRIM(sls_ord_num);
+
+
+
+-- Checking VALUES that not in prd_key
+SELECT
+	sls_ord_num,
+	sls_prd_key,
+	sls_cust_id,
+	sls_order_dt,
+	sls_ship_dt,
+	sls_due_dt,
+	sls_sales,
+	sls_quantity,
+	sls_price
+
+FROM
+	bronze.crm_sales_details
+
+WHERE
+	sls_prd_key NOT IN (SELECT prd_key FROM silver.crm_prd_info);
+
+
+
+
