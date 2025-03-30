@@ -28,7 +28,7 @@ BEGIN
 
 		PRINT '>> Inserting Table: bronze.crm_cust_info';
 		BULK INSERT bronze.crm_cust_info
-		FROM 'C:\Project\Dataset\DATA-WAREHOUSE\source_crm\cust_info.csv'
+		FROM '<file path>'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -46,7 +46,7 @@ BEGIN
 
 		PRINT '>> Inserting Table: bronze.crm_cust_info';
 		BULK INSERT bronze.crm_prd_info
-		FROM 'C:\Project\Dataset\DATA-WAREHOUSE\source_crm\prd_info.csv'
+		FROM '<file path>'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -66,7 +66,7 @@ BEGIN
 
 		PRINT '>> Inserting Table: bronze.crm_sales_details';
 		BULK INSERT bronze.crm_sales_details
-		FROM 'C:\Project\Dataset\DATA-WAREHOUSE\source_crm\sales_details.csv'
+		FROM '<file path>'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -90,7 +90,7 @@ BEGIN
 
 		PRINT '>> Inserting Table: bronze.erp_cust_az12';
 		BULK INSERT bronze.erp_cust_az12
-		FROM 'C:\Project\Dataset\DATA-WAREHOUSE\source_erp\cust_az12.csv'
+		FROM '<file path>'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -108,7 +108,7 @@ BEGIN
 
 		PRINT '>> Inserting Table: bronze.erp_loc_a101';
 		BULK INSERT bronze.erp_loc_a101
-		FROM 'C:\Project\Dataset\DATA-WAREHOUSE\source_erp\loc_a101.csv'
+		FROM '<file path>'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -126,7 +126,7 @@ BEGIN
 
 		PRINT '>> Inserting Table: bronze.erp_px_cat_g1v2';
 		BULK INSERT bronze.erp_px_cat_g1v2
-		FROM 'C:\Project\Dataset\DATA-WAREHOUSE\source_erp\px_cat_g1v2.csv'
+		FROM '<file path>'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
