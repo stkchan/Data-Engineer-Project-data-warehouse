@@ -160,6 +160,35 @@ ORDER BY
 	sls_price;
 
 
+-- Checking for Out-Of-Range DATES
+SELECT
+	bdate
+
+FROM
+	bronze.erp_cust_az12
+
+WHERE
+	bdate < '1924-01-01'
+	OR bdate > GETDATE()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
