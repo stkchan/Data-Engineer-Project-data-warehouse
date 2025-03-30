@@ -26,3 +26,13 @@ SELECT
     DISTINCT cst_gender
 FROM
 	silver.crm_cust_info;
+
+
+-- Checking values of prd_cost
+SELECT 
+    prd_cost
+FROM
+	silver.crm_prd_info
+WHERE
+	prd_cost < 0
+	OR prd_cost IS NULL;
