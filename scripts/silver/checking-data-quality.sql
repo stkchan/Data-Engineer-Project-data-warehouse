@@ -91,4 +91,38 @@ WHERE
 
 
 
+-- Checking VALUES Invalid DATE
+
+SELECT
+	NULLIF(sls_order_dt, 0) AS sls_order_dt
+	
+FROM
+	bronze.crm_sales_details
+
+WHERE
+	sls_order_dt <=0
+	OR LEN(sls_order_dt) != 8;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
