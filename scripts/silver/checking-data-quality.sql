@@ -121,6 +121,44 @@ WHERE
 
 
 
+-- Checking for "sls_price", "sls_quantity", and "sls_sales"
+-- First of all, please go talk to "BUSINESS USERS" or "THE PERSON who is responsible for tracking or acquiring this data"
+-- If values in "sls_sales" are negative, zero, or null, derive it using "sls_quantity" and "sls_price"
+-- If values in "sls_price" are zero, or null, calculate it using "sls_sales" and "sls_quantity"
+-- If values in "sls_price" are nagive, convert it to a positive value"
+
+SELECT
+	sls_sales,
+	sls_quantity,
+	sls_price,
+
+	CASE
+		WHEN sls_sales IS NULL OR sls_sales <= 0 OR sls_sales != sls_quantity * ABS(sls_price) THEN sls_quantity * ABS(sls_price)
+		ELSE sls_sales
+	END AS sls_sales_g,
+
+	CASE
+		WHEN sls_price IS NULL OR sls_price <= 0 THEN sls_sales / NULLIF(sls_quantity, 0)
+		ELSE sls_price
+	END AS sls_price_g
+
+FROM
+	bronze.crm_sales_details
+
+WHERE
+	sls_sales != sls_quantity * sls_price
+	OR sls_sales IS NULL
+	OR sls_quantity IS NULL
+	OR sls_price IS NULL
+	OR sls_sales <= 0
+	OR sls_quantity <= 0
+	OR sls_price <= 0
+
+ORDER BY
+	sls_sales,
+	sls_quantity,
+	sls_price;
+
 
 
 
