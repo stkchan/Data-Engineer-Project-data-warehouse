@@ -36,3 +36,12 @@ FROM
 WHERE
 	prd_cost < 0
 	OR prd_cost IS NULL;
+
+
+-- Checking for invalid DATE ORDERS
+SELECT 
+    *
+FROM
+	silver.crm_prd_info
+WHERE
+	prd_end_dt < prd_start_dt;
