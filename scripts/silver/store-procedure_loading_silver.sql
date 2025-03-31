@@ -3,7 +3,7 @@
 Stored Procedure: Load silver Layer (Bronze-> Silver)
 ===============================================================================
 Usage Example:
-    EXEC silver.load_bronze;
+    EXEC silver.load_silver;
 ===============================================================================
 */
 
@@ -39,6 +39,10 @@ BEGIN
 					ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date DESC) AS ranked
 				FROM
 					bronze.crm_cust_info
+				
+				WHERE
+						cst_firstname COLLATE Latin1_General_BIN NOT LIKE '%' + CAST(NCHAR(65533) AS NVARCHAR) + '%'
+					AND PATINDEX('%[A-Za-z]%', cst_firstname COLLATE Latin1_General_BIN) > 0
 			)
 
 
