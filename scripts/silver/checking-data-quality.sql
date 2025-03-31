@@ -1,3 +1,25 @@
+-- Detecting LATIN values
+
+SELECT
+	ci.cst_id,
+	ci.cst_key,
+	ci.cst_firstname,
+	ci.cst_material_status,
+	ci.cst_gender,
+	ci.cst_create_date,
+
+	cst_firstname COLLATE Latin1_General_CI_AS AS ConvertedColumn
+	
+
+FROM
+	silver.crm_cust_info AS ci
+WHERE
+	
+
+	ci.cst_firstname COLLATE Latin1_General_BIN LIKE '%' + CAST(NCHAR(65533) AS NVARCHAR) + '%';
+
+
+
 -- Checking DUPLICATE values of cst_id
 SELECT
 	cst_id,
