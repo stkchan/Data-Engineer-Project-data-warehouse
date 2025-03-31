@@ -35,6 +35,7 @@ CREATE TABLE silver.crm_prd_info (
 	prd_start_dt		DATE,
 	prd_end_dt		DATE,
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
+);
 GO
 
 IF OBJECT_ID ('silver.crm_sales_details', 'U') IS NOT NULL
